@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.travel.dao.CommentDao">
+	<resultMap type="com.example.travel.domain.Comment" id="comment">
+		<id column="com_id" property="id" />
+		<result column="com_content" property="content" />
+		<result column="user_id" property="userId" />
+		<result column="spot_id" property="spotId" />
+		<result column="com_status" property="status" />
+	</resultMap>
+
+<!-- 根据景点编号筛选评论 -->
+	<select id="getCommentBySpotid" parameterType="long" resultType="comment">
+		select * from comment
+		where spot_id = #{spotId} 
+	</select>
+	
+	<select id="getCommentById" parameterType="long" resultType="comment">
+		select * from comment
+		where com_id = #{id} 
+	</select>
+
+<!-- 根据评论内容删除评论 -->
+	<delete id="deleteCommentByContent" parameterType="String">
+		delete from comment
+		where  com_content like concat('%', #{content}, '%')
+	</delete>
+	
+</mapper>

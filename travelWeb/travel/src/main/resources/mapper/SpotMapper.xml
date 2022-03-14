@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.travel.dao.SpotDao">
+	<resultMap type="com.example.travel.domain.Spot" id="spot">
+		<id column="spot_id" property="id" />
+		<result column="spot_name" property="name" />
+		<result column="spot_address" property="address" />
+		<result column="spot_time" property="time" />
+		<result column="spot_way" property="way" />
+		<result column="spot_price" property="price" />
+		<result column="spot_description" property="description" />
+		<result column="spot_img" property="bigimg" />
+		<result column="spot_theme" property="theme" />
+		<result column="spot_traffic" property="traffic" />
+		<result column="spot_food" property="food" />
+		<result column="spot_img_status" property="status" />
+		<result column="user_id" property="userId" />
+		<result column="great_num" property="greatNum" />
+		
+		<collection property="images" column="spot_id"
+			select="com.example.travel.dao.ImageDao.getImageBySpotId" />
+		<collection property="commentList" column="spot_id"
+			select="com.example.travel.dao.CommentDao.getCommentById" />
+		
+	</resultMap>
+
+<!-- 所有spot -->
+	<select id="getSpots" resultMap="spot">
+		select * from spot where spot_img_status=1
+	</select>
+
+<!-- 根据预算筛选 -->
+	<select id="getSpotByPrice" resultMap="spot">
+		select * from spot
+		where spot_price &lt;= #{up} and spot_price >=#{low}
+	</select>
+
+<!-- 根据主题筛选 -->
+	<select id="getSpotByTheme" resultMap="spot">
+		select * from spot
+		where spot_theme = #{theme}
+	</select>
+
+<!-- 根据位置模糊筛选 -->
+	<select id="getSpotByAddressDetail"  resultMap="spot">
+		select * from spot
+		where spot_address=#{address}
+	</select>
+
+<!-- 根据位置模糊筛选 -->
+	<select id="getSpotByAddress"  resultMap="spot">
+		select * from spot
+		where spot_address like concat('%', #{address}, '%')
+	</select>
+
+<!-- 根据id获取spot -->
+	<select id="getSpotById" parameterType="int" resultMap="spot">
+		select * from spot
+		where spot_id = #{spotId}
+	</select>
+
+    <insert id="insertSpot" parameterType="spot">
+        insert into spot(
+        spot_id, spot_name, spot_address, spot_time, spot_way,spot_price,spot_description,
+        spot_img, spot_theme,spot_traffic, spot_food, spot_img_status, user_id
+        )
+        values(
+        #{id}, #{name}, #{address}, #{time}, #{way}, #{price}, #{description}, 
+        #{bigimg}, #{theme},  #{traffic}, #{food}, #{status}, #{userId}
+        )
+    </insert>
+    
+	<delete id="deleteSpot" parameterType="long">
+		delete from spot
+		where spot_id = #{id}
+	</delete>
+	
+	<update id="updateSpot" parameterType="spot">
+		update spot
+		set spot_name = #{name}, spot_address = #{address}, spot_time = #{time},
+		spot_way = #{way}, spot_price = #{price}, spot_description = #{description},
+		spot_img = #{bigimg}, spot_theme = #{theme}, spot_traffic = #{traffic},
+		spot_food = #{food}, spot_img_status = #{status}, user_id = #{userId},great_num=#{greatNum}
+		where spot_id = #{id}
+	</update>
+</mapper>

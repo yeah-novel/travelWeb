@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Blog Details | Triangle</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/lightbox.css" rel="stylesheet">
+    <link href="/css/animate.min.css" rel="stylesheet">
+	<link href="/css/main.css" rel="stylesheet">
+	<link href="/css/responsive.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+	    <script src="/js/html5shiv.js"></script>
+	    <script src="/js/respond.min.js"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+    <script type="text/javascript">var switchTo5x=true;</script>
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">stLight.options({publisher: "7e8eb33b-fbe0-4915-9b93-09490e3d10df", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+</head><!--/head-->
+
+<body>
+    <header id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 overflow">
+                    <div class="social-icons pull-right">
+                        <ul class="nav nav-pills">
+                            <li><a href=""><i class="fa fa-facebook"></i></a></li>
+                            <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                            <li><a href=""><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href=""><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href=""><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar navbar-inverse" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <a class="navbar-brand" href="index.html">
+                        <h1><img src="images/logo(1).png" alt="logo"></h1>
+                    </a>
+
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown active">
+                            <a href="/AllSpots">HOME</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="/toBlogPage">TRAVEL SHARE </a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="/toPublishPhotoPage">PUBLISH</a>
+                        </li>
+                        <li class="dropdown" th:if="${session.user==null}">
+                            <a href="/toLoginPage">LOGIN </a>
+                        </li>
+                        <li class="dropdown" th:if="${session.user!=null}">
+                            <a href="/toLoginOut">logout</a>
+                        </li>
+                        <li class="dropdown" th:if="${session.user!=null}">
+                            <a><p th:text="${session.user.userPhone}"/></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrap-header">
+            <h1>see the word differently</h1>
+            <span>Request,design and book travel experiences as unique as you are</span>
+            <center>
+                <div class="search-form">
+                    <form method="get" action="/search" id="search" class="f-right">
+                        <input name="q" type="text" size="40" placeholder="Where are you going ?">
+                        <input type="submit" name="Submit" value="Search">
+                    </form>
+                </div>
+            </center>
+        </div>
+    </header>
+    <!--/#header-->
+    <h1 class="title">Blog Details</h1>
+    <p class="title">Blog with right sidebar</p>
+
+
+    <!--/#page-breadcrumb-->
+
+    <section id="blog-details" class="padding-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 col-sm-7">
+                    <div class="row">
+                         <div class="col-md-12 col-sm-12">
+                            <div class="single-blog blog-details two-column">
+                                <div class="post-thumb">
+                                    <a href="#"><img src="/images/blog/1.jpg" class="img-responsive" alt=""></a>
+                                    <div class="post-overlay">
+                                        <span class="uppercase"><a href="#">14 <br><small>Feb</small></a></span>
+                                    </div>
+                                </div>
+                                <div class="post-content overflow">
+                                    <h2 class="post-title bold"><a href="#">Advanced business cards design</a></h2>
+                                    <h3 class="post-author"><a href="#">Posted by micron News</a></h3>
+                                    <p> 过去以为，旅游就是远离城市的喧嚣，摆脱日常生活、家庭和事业的羁绊，纵情于山水之间，看不一样的锦绣风景，看各地的风俗人文，满足好奇心、求知欲，增加阅历，赏心悦目而已。可是随着旅游次数的增加，年龄的增长，对旅游有了新的感悟：旅游的过程能够放松心境。平时人们在各自的生活中都会有这样那样的纠结和不如意，可是在投身于大自然之后，会为山水的壮美而感怀，会觉得自我是那样的渺小，而自我的烦恼更是不值一提，多数人都会变得释然、超然、开心起来。旅游的过程能让人回归简单。现代人平时都处于纷繁复杂的人事关系当中，多单纯的人也得把自我武装起来、包装起来，人都变得虚伪了、隔阂了、程式化了。当人远离原先生存的空间，应对大自然的时候，人与人之间的关系就简单了，都是自然之子，都一样的为大自然的鬼斧神工、美轮美奂而激动惊奇，都一样的面带惊讶和微笑，都一样的真诚单纯。旅游能够使人恢复童心。在家里、在单位、在社会，人都有自我的主角和年龄定位。可是在大自然的怀抱里，人们恍惚之间都把自我变成了孩子，都是在玩耍游戏，不一样年龄人的代沟瞬间会化为乌有。君不见。每个人的脸上都挂着同样的天真甚至满脸皱纹的八旬老翁，也乐得跟“没牙虎儿”似的。旅游能让人挥洒天性。
+                                        　　现代社会，严格的说是抹杀人的个性的，人们要想生存发展，都会强迫自我适应外界。</p>
+                                    <p>可是大自然是宽容的，你想说就说，想笑就笑，想说什么就说什么，想干什么就干什么违法的除外)，嬉笑怒骂，尽情挥洒，大自然一概不管，同处大自然怀抱的人们也远比平时宽容。平时不苟言笑的科长能够说出自我对某个暧昧地方的向往，妙龄女郎能够把假小子的性格发挥的淋漓尽致，半老徐娘能够把爱美的天性在镜头前随时展现，不会有任何人说什么，甚至平时上下级的关系也能够暂时打破。旅游能够让你放飞情怀。应对精彩纷呈的自然人文景观，人们的胸襟会开阔，思路会顺达，情感细胞会活跃，顾虑会减少，会出现平时难得的灵感或情感迸发，文人会文思泉涌，科学家会彻悟猜想，情人会感情升华。甚或爱国情、家乡情、朋友情等完美情怀会得到些许净化和增色。旅游能够让人提升人格。
+                                        　　应对大自然的完美、真实、平等、超然，人们会反思自我，会良知发现，会重新审视自我的所作所为，会调整自我的看问题的角度，放弃一些不客观、不理智的想法，礼让互助、尊老爱幼、爱护环境等传统美德也会得到苏醒和发扬。旅游真好，让我们尽量的挤出时间去亲近自然吧!去恢复、发现真实的自我吧!
+                                    </p>
+                                    <div class="post-bottom overflow">
+                                        <ul class="nav navbar-nav post-nav">
+                                            <li><a href="#"><i class="fa fa-tag"></i>Creative</a></li>
+                                            <li><a href="#"><i class="fa fa-heart"></i>32 Love</a></li>
+                                            <li><a href="#"><i class="fa fa-comments"></i>3 Comments</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="blog-share">
+                                        <span class='st_facebook_hcount'></span>
+                                        <span class='st_twitter_hcount'></span>
+                                        <span class='st_linkedin_hcount'></span>
+                                        <span class='st_pinterest_hcount'></span>
+                                        <span class='st_email_hcount'></span>
+                                    </div>
+                                    <div class="author-profile padding">
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                                <img src="/images/blogdetails/1.png" alt="">
+                                            </div>
+                                            <div class="col-sm-10">
+                                                <h3>Rodrix Hasel</h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliq Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi</p>
+                                                <span>Website:<a href="www.jooomshaper.com"> www.jooomshaper.com</a></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--<div class="response-area">
+                                    <h2 class="bold">Comments</h2>
+                                    <ul class="media-list">
+                                        <li class="media">
+                                            <div class="post-comment">
+                                                <a class="pull-left" href="#">
+                                                    <img class="media-object" src="images/blogdetails/2.png" alt="">
+                                                </a>
+                                                <div class="media-body">
+                                                    <span><i class="fa fa-user"></i>Posted by <a href="#">Endure</a></span>
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliq Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.</p>
+                                                    <ul class="nav navbar-nav post-nav">
+                                                        <li><a href="#"><i class="fa fa-clock-o"></i>February 11,2014</a></li>
+                                                        <li><a href="#"><i class="fa fa-reply"></i>Reply</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="parrent">
+                                                <ul class="media-list">
+                                                    <li class="post-comment reply">
+                                                        <a class="pull-left" href="#">
+                                                            <img class="media-object" src="images/blogdetails/3.png" alt="">
+                                                        </a>
+                                                        <div class="media-body">
+                                                            <span><i class="fa fa-user"></i>Posted by <a href="#">Endure</a></span>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut </p>
+                                                            <ul class="nav navbar-nav post-nav">
+                                                                <li><a href="#"><i class="fa fa-clock-o"></i>February 11,2014</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="media">
+                                            <div class="post-comment">
+                                                <a class="pull-left" href="#">
+                                                    <img class="media-object" src="images/blogdetails/4.png" alt="">
+                                                </a>
+                                                <div class="media-body">
+                                                    <span><i class="fa fa-user"></i>Posted by <a href="#">Endure</a></span>
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliq Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.</p>
+                                                    <ul class="nav navbar-nav post-nav">
+                                                        <li><a href="#"><i class="fa fa-clock-o"></i>February 11,2014</a></li>
+                                                        <li><a href="#"><i class="fa fa-reply"></i>Reply</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>--><!--/Response-area-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+                <div class="col-md-3 col-sm-5">
+                    <div class="sidebar blog-sidebar">
+                        <div class="sidebar-item  recent">
+                            <h3>Comments</h3>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <a href="#"><img src="images/portfolio/project1.jpg" alt=""></a>
+                                </div>
+                                <div class="media-body">
+                                    <h4><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit,</a></h4>
+                                    <p>posted on  07 March 2014</p>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <a href="#"><img src="images/portfolio/project2.jpg" alt=""></a>
+                                </div>
+                                <div class="media-body">
+                                    <h4><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit,</a></h4>
+                                    <p>posted on  07 March 2014</p>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <a href="#"><img src="images/portfolio/project3.jpg" alt=""></a>
+                                </div>
+                                <div class="media-body">
+                                    <h4><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit,</a></h4>
+                                    <p>posted on  07 March 2014</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sidebar-item categories">
+                            <h3>Categories</h3>
+                            <ul class="nav navbar-stacked">
+                                <li><a href="#">Lorem ipsum<span class="pull-right">(1)</span></a></li>
+                                <li class="active"><a href="#">Dolor sit amet<span class="pull-right">(8)</span></a></li>
+                                <li><a href="#">Adipisicing elit<span class="pull-right">(4)</span></a></li>
+                                <li><a href="#">Sed do<span class="pull-right">(9)</span></a></li>
+                                <li><a href="#">Eiusmod<span class="pull-right">(3)</span></a></li>
+                                <li><a href="#">Mockup<span class="pull-right">(4)</span></a></li>
+                                <li><a href="#">Ut enim ad minim <span class="pull-right">(2)</span></a></li>
+                                <li><a href="#">Veniam, quis nostrud <span class="pull-right">(8)</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-item tag-cloud">
+                            <h3>Tag Cloud</h3>
+                            <ul class="nav nav-pills">
+                                <li><a href="#">Corporate</a></li>
+                                <li><a href="#">Joomla</a></li>
+                                <li><a href="#">Abstract</a></li>
+                                <li><a href="#">Creative</a></li>
+                                <li><a href="#">Business</a></li>
+                                <li><a href="#">Product</a></li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-item popular">
+                            <h3>Latest Photos</h3>
+                            <ul class="gallery">
+                                <li><a href="#"><img src="images/portfolio/popular1.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="images/portfolio/popular2.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="images/portfolio/popular3.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="images/portfolio/popular4.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="images/portfolio/popular5.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="images/portfolio/popular1.jpg" alt=""></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/#blog-->
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center bottom-separator">
+                    <img src="images/home/under.png" class="img-responsive inline" alt="">
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="testimonial bottom">
+                        <h2>Testimonial</h2>
+                        <div class="media">
+                            <div class="pull-left">
+                                <a href="#"><img src="images/home/profile1.png" alt=""></a>
+                            </div>
+                            <div class="media-body">
+                                <blockquote>Nisi commodo bresaola, leberkas venison eiusmod bacon occaecat labore tail.</blockquote>
+                                <h3><a href="#">- Jhon Kalis</a></h3>
+                            </div>
+                         </div>
+                        <div class="media">
+                            <div class="pull-left">
+                                <a href="#"><img src="images/home/profile2.png" alt=""></a>
+                            </div>
+                            <div class="media-body">
+                                <blockquote>Capicola nisi flank sed minim sunt aliqua rump pancetta leberkas venison eiusmod.</blockquote>
+                                <h3><a href="">- Abraham Josef</a></h3>
+                            </div>
+                        </div>   
+                    </div> 
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="contact-info bottom">
+                        <h2>Contacts</h2>
+                        <address>
+                        E-mail: <a href="mailto:someone@example.com">email@email.com</a> <br> 
+                        Phone: +1 (123) 456 7890 <br> 
+                        Fax: +1 (123) 456 7891 <br> 
+                        </address>
+
+                        <h2>Address</h2>
+                        <address>
+                        Unit C2, St.Vincent's Trading Est., <br> 
+                        Feeder Road, <br> 
+                        Bristol, BS2 0UY <br> 
+                        United Kingdom <br> 
+                        </address>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <div class="contact-form bottom">
+                        <h2>Send a message</h2>
+                        <form id="main-contact-form" name="contact-form" method="post" action="sendemail.php">
+                            <div class="form-group">
+                                <input type="text" name="name" class="form-control" required="required" placeholder="Name">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" class="form-control" required="required" placeholder="Email Id">
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Your text here"></textarea>
+                            </div>                        
+                            <div class="form-group">
+                                <input type="submit" name="submit" class="btn btn-submit" value="Submit">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="copyright-text text-center">
+                        <p>&copy; Your Company 2014. All Rights Reserved.</p>
+                        <p>Designed by Themeum</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--/#footer-->
+
+
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/lightbox.min.js"></script>
+    <script type="text/javascript" src="js/wow.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>   
+</body>
+</html>

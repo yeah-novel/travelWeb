@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>心得分享</title>
+ 
+  <!-- Bootstrap -->
+  <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <!-- CUSTOM CSS -->
+  	<link href="/css/Publishstyle.css" rel="stylesheet" type="text/css"  >
+  	<link href="/css/photo.css" rel="stylesheet" type="text/css">
+	<link href="/css/imgShare.css" rel="stylesheet" type="text/css">
+	<link href="/css/main.css" rel="stylesheet">
+	<link href="/css/responsive.css" rel="stylesheet">
+
+  <!-- FAVICON -->
+  <link href="img/favicon.png" rel="shortcut icon">
+
+  <script src="/js/html5shiv.js"></script>
+  <script src="/js/respond.min.js"></script>
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/imgFileupload.js"></script>
+
+</head>
+
+<body>
+<!--==================================
+=            User Profile            =
+===================================-->
+
+<div class="navbar" role="banner">
+	<div class="container">
+		<div>
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+
+			<a class="navbar-brand" href="index.html">
+				<h1><img src="/images/logo(1).png" alt="logo"></h1>
+			</a>
+
+		</div>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+					<a href="/AllSpots">HOME</a>
+				</li>
+				<li class="dropdown">
+					<a href="/toBlogPage">TRAVEL SHARE </a>
+				</li>
+				<li class="dropdown active">
+					<a href="/toPublishPhotoPage">PUBLISH</a>
+				</li>
+				<li class="dropdown" th:if="${session.user==null}">
+					<a href="/toLoginPage">LOGIN </a>
+				</li>
+				<li class="dropdown" th:if="${session.user!=null}">
+					<a href="/toLoginOut">logout</a>
+				</li>
+				<li class="dropdown" th:if="${session.user!=null}">
+					<a><p th:text="${session.user.userPhone}"/></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<section class="user-profile section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10 offset-md-1 col-lg-4 offset-lg-0">
+				<div class="sidebar">
+					<!-- User Widget -->
+					<div class="widget user-dashboard-profile">
+						<!-- User Image -->
+						<div class="profile-thumb">
+							<img src="/images/1.jpeg" alt="个人信息" class="rounded-circle">
+						</div>
+						<!-- User Name -->
+						<h5 class="text-center">Jacky</h5>
+						<p>Joined February 06, 2017</p>
+					</div>
+					<!-- Dashboard Links -->
+					<div class="widget user-dashboard-menu">
+						<ul>
+							<li>
+								<a ><i class="fa fa-user"></i>历史记录</a></li>
+							<li>
+								<a ><img src="/images/3.jpg" />  云南丽江 </a>
+							</li>
+							<li>
+								<a ><img src="/images/6.jpg" /> 日本东京 </a>
+							</li>
+							<li>
+								<a ><img src="/images/4.jpg" /> 珠江夜游</a>
+							</li>
+							<li>
+								<a ><img src="/images/4.jpg" />  福建杨家溪</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+				<div class="col-md-10 offset-md-1 col-lg-8 offset-lg-0">
+					<form action="/PubishPhoto" method="post" >
+						<!-- Edit Personal Info -->
+						<div class="widget personal-info">
+							<h3 class="widget-header user">基本信息</h3>
+								<div class="form-group">
+									<div class="widget user-dashboard-menu">
+										<label>位置</label>
+										<ul>
+											<li> <input id="address" name="address" type="radio" value="" />BeiJing
+												<i class="fa fa-shopping-bag"></i> <input name="country" type="radio" value="" />ShaiHai
+												<i class="fa fa-shopping-bag"></i> <input name="country" type="radio" value="" />GuangZhou
+												<i class="fa fa-shopping-bag"></i> <input name="country" type="radio" value="" />HuBei
+												<i class="fa fa-shopping-bag"></i> <input name="country" type="radio" value="" />SiChuan
+												<i class="fa fa-shopping-bag"></i> <input name="country" type="radio" value="" />Other
+											</li>
+
+										</ul>
+										<label>费用</label>
+										<ul>
+											<li> <input id="price" name="price" type="radio" value="" />Below 1000
+												<i class="fa fa-shopping-bag"></i> <input name="country" type="radio" value="" />1000~2000
+												<i class="fa fa-shopping-bag"></i> <input name="country" type="radio" value="" />2000~3000
+												<i class="fa fa-shopping-bag"></i> <input name="country" type="radio" value="" />3000~4000
+												<i class="fa fa-shopping-bag"></i> <input name="country" type="radio" value="" />4000~5000
+												<i class="fa fa-shopping-bag"></i> <input name="country" type="radio" value="" />Above 5000
+											</li>
+										</ul>
+										<label>主题</label>
+										<ul>
+												<i class="fa fa-shopping-bag"></i> <input name="country" type="radio" value="" />Humanities
+												<i class="fa fa-shopping-bag"></i> <input name="country" type="radio" value="" />landscape
+												<i class="fa fa-shopping-bag"></i> <input name="country" type="radio" value="" />Casual
+												<i class="fa fa-shopping-bag"></i> <input name="country" type="radio" value="" />Gourmet
+												<i class="fa fa-shopping-bag"></i> <input name="country" type="radio" value="" />Custom
+												<i class="fa fa-shopping-bag"></i> <input name="country" type="radio" value="" />Other
+											</li>
+										</ul>
+									</div>
+									<div class="form-group choose-file">
+										<input id="bigimg" name="bigimg" onchange="uploadImg(this,'preview')" type="file"/>
+										<span class="dui" id="imgOrder_dui" style="display: none;"/>
+									</div>
+
+								</div>
+
+								<div class="form-group">
+									<label >照片描述</label>
+									 <input id="description" type="text" class="form-control" name="description">
+								</div>
+							<label >详细图片</label>
+							<div class="box2" style="width:700px;margin:50px auto"></div>
+						</div>
+		<!-- 				Change Password -->
+						<div class="widget change-password">
+							<h3 class="widget-header user">其他信息</h3>
+							<div class="form-group">
+								<label>具体名称</label>
+								<input id="name" type="text" class="form-control" name="name">
+							</div>
+							<div class="form-group">
+								<label>游玩方式</label>
+								<input id="way" type="text" class="form-control" name="way">
+							</div>
+							<div class="form-group">
+								<label>交通路线</label>
+								<input id="traffic" type="text" class="form-control" name="traffic">
+							</div>
+							<div class="form-group">
+								<label>附近美食</label>
+								<input id="food" type="text" class="form-control" name="food">
+							</div>
+							<div class="form-group">
+								<label >开放时间</label>
+								<input type="text" class="form-control" name="time">
+							</div>
+	<!-- 						Submit Button -->
+							<input type="submit" class="btn btn-transparent" />
+						</div>
+					</form>
+				</div>
+			</form>
+		</div>
+	</div>
+</section>
+
+<script>
+	function uploadImg(file,imgNum){
+		var widthImg = 200; //显示图片的width
+		var heightImg = 200; //显示图片的height
+		var div = document.getElementById(imgNum);
+		if (file.files && file.files[0]){
+			div.innerHTML ='<img id="upImg">'; //生成图片
+			var img = document.getElementById('upImg'); //获得用户上传的图片节点
+			img.onload = function(){
+				img.width = widthImg;
+				img.height = heightImg;
+			}
+			var reader = new FileReader(); //判断图片是否加载完毕
+			reader.onload = function(evt){
+				if(reader.readyState === 2){ //加载完毕后赋值
+					img.src = evt.target.result;
+				}
+			}
+			reader.readAsDataURL(file.files[0]);
+		}
+	}
+</script>
+<script>
+	var imgFile1 = new ImgUploadeFiles('.box2',function(e){
+		this.init({
+			MAX : 5,
+			MH : 1800, //像素限制高度
+			MW : 1900, //像素限制宽度
+			callback : function(arr){
+				console.log(arr)
+			}
+		});
+	});
+</script>
+</body>
+
+</html>

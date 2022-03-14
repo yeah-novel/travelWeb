@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="author" content="">
+    <title>Blog Default | Triangle</title>
+    <link type="text/css" rel="styleSheet" href="/css/bootstrap.min.css">
+    <link type="text/css" rel="styleSheet" href="/css/font-awesome.min.css" >
+    <link type="text/css" rel="styleSheet" href="/css/lightbox.css" >
+    <link type="text/css" rel="styleSheet" href="/css/animate.min.css" >
+	<link type="text/css" rel="styleSheet" href="/css/main.css" >
+	<link type="text/css" rel="styleSheet" href="/css/responsive.css" >
+
+    <!--[if lt IE 9]>
+	    <script src="/js/html5shiv.js"></script>
+	    <script src="/js/respond.min.js"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/images/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->
+
+<body>
+    <header id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 overflow">
+                    <div class="social-icons pull-right">
+                        <ul class="nav nav-pills">
+                            <li><a href=""><i class="fa fa-facebook"></i></a></li>
+                            <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                            <li><a href=""><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href=""><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href=""><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar navbar-inverse" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <a class="navbar-brand" href="index.html">
+                        <h1><img src="images/logo(1).png" alt="logo"></h1>
+                    </a>
+
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown active">
+                            <a href="/AllSpots">HOME</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="/toBlogPage">TRAVEL SHARE </a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="/toPublishPhotoPage">PUBLISH</a>
+                        </li>
+                        <li class="dropdown" th:if="${session.user==null}">
+                            <a href="/toLoginPage">LOGIN </a>
+                        </li>
+                        <li class="dropdown" th:if="${session.user!=null}">
+                            <a href="/toLoginOut">logout </a>
+                        </li>
+                        <li class="dropdown" th:if="${session.user!=null}">
+                            <a><p th:text="${session.user.userPhone}"/></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrap-header">
+            <h1>see the word differently</h1>
+            <span>Request,design and book travel experiences as unique as you are</span>
+            <center>
+                <div class="search-form">
+                    <form method="get" action="/search" id="search" class="f-right">
+                        <input name="q" type="text" size="40" placeholder="Where are you going ?">
+                        <input type="submit" name="Submit" value="Search">
+                    </form>
+                </div>
+            </center>
+        </div>
+    </header>
+    <!--/#header-->
+
+    <h1 class="title">Blog</h1>
+    <p class="title">Blog with right sidebar</p>
+
+    <!--/#page-breadcrumb-->
+
+    <section id="blog" class="padding-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 col-sm-7">
+                    <div class="row">
+                         <div class="col-sm-12 col-md-12">
+                            <div class="single-blog single-column">
+                                <div class="post-thumb">
+                                    <a href="blogdetails.html"><img src="images/blog/1.jpg" class="img-responsive" alt=""></a>
+                                    <div class="post-overlay">
+                                       <span class="uppercase"><a href="#">14 <br><small>Feb</small></a></span>
+                                   </div>
+                                </div>
+                                <div class="post-content overflow">
+                                    <h2 class="post-title bold"><a href="blogdetails.html">Advanced business cards design</a></h2>
+                                    <h3 class="post-author"><a href="#">Posted by micron News</a></h3>
+                                    <p>过去以为，旅游就是远离城市的喧嚣，摆脱日常生活、家庭和事业的羁绊，纵情于山水之间，看不一样的锦绣风景，看各地的风俗人文，满足好奇心、求知欲，增加阅历，赏心悦目而已。可是随着旅游次数的增加，年龄的增长，对旅游有了新的感悟：旅游的过程能够放松心境。平时人们在各自的生活中都会有这样那样的纠结和不如意，可是在投身于大自然之后，会为山水的壮美而感怀，会觉得自我是那样的渺小，而自我的烦恼更是不值一提，多数人都会变得释然、超然、开心起来。旅游的过程能让人回归简单。现代人平时都处于纷繁复杂的人事关系当中，多单纯的人也得把自我武装起来、包装起来，人都变得虚伪了、隔阂了、程式化了。当人远离原先生存的空间，应对大自然的时候，人与人之间的关系就简单了，都是自然之子，都一样的为大自然的鬼斧神工、美轮美奂而激动惊奇，都一样的面带惊讶和微笑，都一样的真诚单纯。旅游能够使人恢复童心。在家里、在单位、在社会，人都有自我的主角和年龄定位。可是在大自然的怀抱里，人们恍惚之间都把自我变成了孩子，都是在玩耍游戏，不一样年龄人的代沟瞬间会化为乌有。君不见。每个人的脸上都挂着同样的天真甚至满脸皱纹的八旬老翁，也乐得跟“没牙虎儿”似的。旅游能让人挥洒天性。
+                                        　　现代社会，严格的说是抹杀人的个性的，人们要想生存发展，都会强迫自我适应外界。[...]</p>
+                                    <a href="/toBlogDetailPage" class="read-more">View More</a>
+                                    <div class="post-bottom overflow">
+                                        <ul class="nav navbar-nav post-nav">
+                                            <li><a href="#"><i class="fa fa-tag"></i>Creative</a></li>
+                                            <li><a href="#"><i class="fa fa-heart"></i>32 Love</a></li>
+                                            <li><a href="#"><i class="fa fa-comments"></i>3 Comments</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12">
+                            <div class="single-blog single-column">
+                                <div class="post-thumb">
+                                    <a href="/toBlogDetailPage"><img src="/images/blog/2.jpg" class="img-responsive" alt=""></a>
+                                    <div class="post-overlay">
+                                       <span class="uppercase"><a href="#">14 <br><small>Feb</small></a></span>
+                                   </div>
+                                </div>
+                                <div class="post-content overflow">
+                                    <h2 class="post-title bold"><a href="blogdetails.html">Advanced business cards design</a></h2>
+                                    <h3 class="post-author"><a href="#">Posted by micron News</a></h3>
+                                    <p>过去以为，旅游就是远离城市的喧嚣，摆脱日常生活、家庭和事业的羁绊，纵情于山水之间，看不一样的锦绣风景，看各地的风俗人文，满足好奇心、求知欲，增加阅历，赏心悦目而已。可是随着旅游次数的增加，年龄的增长，对旅游有了新的感悟：旅游的过程能够放松心境。平时人们在各自的生活中都会有这样那样的纠结和不如意，可是在投身于大自然之后，会为山水的壮美而感怀，会觉得自我是那样的渺小，而自我的烦恼更是不值一提，多数人都会变得释然、超然、开心起来。旅游的过程能让人回归简单。现代人平时都处于纷繁复杂的人事关系当中，多单纯的人也得把自我武装起来、包装起来，人都变得虚伪了、隔阂了、程式化了。当人远离原先生存的空间，应对大自然的时候，人与人之间的关系就简单了，都是自然之子，都一样的为大自然的鬼斧神工、美轮美奂而激动惊奇，都一样的面带惊讶和微笑，都一样的真诚单纯。旅游能够使人恢复童心。在家里、在单位、在社会，人都有自我的主角和年龄定位。可是在大自然的怀抱里，人们恍惚之间都把自我变成了孩子，都是在玩耍游戏，不一样年龄人的代沟瞬间会化为乌有。君不见。每个人的脸上都挂着同样的天真甚至满脸皱纹的八旬老翁，也乐得跟“没牙虎儿”似的。旅游能让人挥洒天性。
+                                        　　现代社会，严格的说是抹杀人的个性的，人们要想生存发展，都会强迫自我适应外界。[...]</p>
+                                    <a href="/toBlogDetailPage" class="read-more">View More</a>
+                                    <div class="post-bottom overflow">
+                                        <ul class="nav navbar-nav post-nav">
+                                            <li><a href="#"><i class="fa fa-tag"></i>Creative</a></li>
+                                            <li><a href="#"><i class="fa fa-heart"></i>32 Love</a></li>
+                                            <li><a href="#"><i class="fa fa-comments"></i>3 Comments</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12">
+                            <div class="single-blog single-column">
+                                <div class="post-thumb">
+                                    <a href="/toBlogDetailPage"><img src="/images/blog/3.jpg" class="img-responsive" alt=""></a>
+                                    <div class="post-overlay">
+                                       <span class="uppercase"><a href="#">14 <br><small>Feb</small></a></span>
+                                   </div>
+                                </div>
+                                <div class="post-content overflow">
+                                    <h2 class="post-title bold"><a href="blogdetails.html">Advanced business cards design</a></h2>
+                                    <h3 class="post-author"><a href="#">Posted by micron News</a></h3>
+                                    <p>过去以为，旅游就是远离城市的喧嚣，摆脱日常生活、家庭和事业的羁绊，纵情于山水之间，看不一样的锦绣风景，看各地的风俗人文，满足好奇心、求知欲，增加阅历，赏心悦目而已。可是随着旅游次数的增加，年龄的增长，对旅游有了新的感悟：旅游的过程能够放松心境。平时人们在各自的生活中都会有这样那样的纠结和不如意，可是在投身于大自然之后，会为山水的壮美而感怀，会觉得自我是那样的渺小，而自我的烦恼更是不值一提，多数人都会变得释然、超然、开心起来。旅游的过程能让人回归简单。现代人平时都处于纷繁复杂的人事关系当中，多单纯的人也得把自我武装起来、包装起来，人都变得虚伪了、隔阂了、程式化了。当人远离原先生存的空间，应对大自然的时候，人与人之间的关系就简单了，都是自然之子，都一样的为大自然的鬼斧神工、美轮美奂而激动惊奇，都一样的面带惊讶和微笑，都一样的真诚单纯。旅游能够使人恢复童心。在家里、在单位、在社会，人都有自我的主角和年龄定位。可是在大自然的怀抱里，人们恍惚之间都把自我变成了孩子，都是在玩耍游戏，不一样年龄人的代沟瞬间会化为乌有。君不见。每个人的脸上都挂着同样的天真甚至满脸皱纹的八旬老翁，也乐得跟“没牙虎儿”似的。旅游能让人挥洒天性。
+                                        　　现代社会，严格的说是抹杀人的个性的，人们要想生存发展，都会强迫自我适应外界。[...]</p>
+                                    <a href="/toBlogDetailPage" class="read-more">View More</a>
+                                    <div class="post-bottom overflow">
+                                        <ul class="nav navbar-nav post-nav">
+                                            <li><a href="#"><i class="fa fa-tag"></i>Creative</a></li>
+                                            <li><a href="#"><i class="fa fa-heart"></i>32 Love</a></li>
+                                            <li><a href="#"><i class="fa fa-comments"></i>3 Comments</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-pagination">
+                        <ul class="pagination">
+                          <li><a href="#">left</a></li>
+                          <li><a href="#">1</a></li>
+                          <li><a href="#">2</a></li>
+                          <li class="active"><a href="#">3</a></li>
+                          <li><a href="#">4</a></li>
+                          <li><a href="#">5</a></li>
+                          <li><a href="#">6</a></li>
+                          <li><a href="#">7</a></li>
+                          <li><a href="#">8</a></li>
+                          <li><a href="#">9</a></li>
+                          <li><a href="#">right</a></li>
+                        </ul>
+                    </div>
+                 </div>
+                <div class="col-md-3 col-sm-5">
+                    <div class="sidebar blog-sidebar">
+                        <div class="sidebar-item  recent">
+                            <h3>Comments</h3>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <a href="#"><img src="/images/portfolio/project1.jpg" alt=""></a>
+                                </div>
+                                <div class="media-body">
+                                    <h4><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit,</a></h4>
+                                    <p>posted on  07 March 2014</p>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <a href="#"><img src="/images/portfolio/project2.jpg" alt=""></a>
+                                </div>
+                                <div class="media-body">
+                                    <h4><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit,</a></h4>
+                                    <p>posted on  07 March 2014</p>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <a href="#"><img src="/images/portfolio/project3.jpg" alt=""></a>
+                                </div>
+                                <div class="media-body">
+                                    <h4><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit,</a></h4>
+                                    <p>posted on  07 March 2014</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sidebar-item categories">
+                            <h3>Categories</h3>
+                            <ul class="nav navbar-stacked">
+                                <li><a href="#">Lorem ipsum<span class="pull-right">(1)</span></a></li>
+                                <li class="active"><a href="#">Dolor sit amet<span class="pull-right">(8)</span></a></li>
+                                <li><a href="#">Adipisicing elit<span class="pull-right">(4)</span></a></li>
+                                <li><a href="#">Sed do<span class="pull-right">(9)</span></a></li>
+                                <li><a href="#">Eiusmod<span class="pull-right">(3)</span></a></li>
+                                <li><a href="#">Mockup<span class="pull-right">(4)</span></a></li>
+                                <li><a href="#">Ut enim ad minim <span class="pull-right">(2)</span></a></li>
+                                <li><a href="#">Veniam, quis nostrud <span class="pull-right">(8)</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-item tag-cloud">
+                            <h3>Tag Cloud</h3>
+                            <ul class="nav nav-pills">
+                                <li><a href="#">Corporate</a></li>
+                                <li><a href="#">Joomla</a></li>
+                                <li><a href="#">Abstract</a></li>
+                                <li><a href="#">Creative</a></li>
+                                <li><a href="#">Business</a></li>
+                                <li><a href="#">Product</a></li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-item popular">
+                            <h3>Latest Photos</h3>
+                            <ul class="gallery">
+                                <li><a href="#"><img src="/images/portfolio/popular1.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="/images/portfolio/popular2.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="/images/portfolio/popular3.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="/images/portfolio/popular4.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="/images/portfolio/popular5.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="/images/portfolio/popular1.jpg" alt=""></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/#blog-->
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center bottom-separator">
+                    <img src="/images/home/under.png" class="img-responsive inline" alt="">
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="testimonial bottom">
+                        <h2>Testimonial</h2>
+                        <div class="media">
+                            <div class="pull-left">
+                                <a href="#"><img src="/images/home/profile1.png" alt=""></a>
+                            </div>
+                            <div class="media-body">
+                                <blockquote>Nisi commodo bresaola, leberkas venison eiusmod bacon occaecat labore tail.</blockquote>
+                                <h3><a href="#">- Jhon Kalis</a></h3>
+                            </div>
+                         </div>
+                        <div class="media">
+                            <div class="pull-left">
+                                <a href="#"><img src="/images/home/profile2.png" alt=""></a>
+                            </div>
+                            <div class="media-body">
+                                <blockquote>Capicola nisi flank sed minim sunt aliqua rump pancetta leberkas venison eiusmod.</blockquote>
+                                <h3><a href="">- Abraham Josef</a></h3>
+                            </div>
+                        </div>   
+                    </div> 
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="contact-info bottom">
+                        <h2>Contacts</h2>
+                        <address>
+                        E-mail: <a href="mailto:someone@example.com">email@email.com</a> <br> 
+                        Phone: +1 (123) 456 7890 <br> 
+                        Fax: +1 (123) 456 7891 <br> 
+                        </address>
+
+                        <h2>Address</h2>
+                        <address>
+                        Unit C2, St.Vincent's Trading Est., <br> 
+                        Feeder Road, <br> 
+                        Bristol, BS2 0UY <br> 
+                        United Kingdom <br> 
+                        </address>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <div class="contact-form bottom">
+                        <h2>Send a message</h2>
+                        <form id="main-contact-form" name="contact-form" method="post" action="sendemail.php">
+                            <div class="form-group">
+                                <input type="text" name="name" class="form-control" required="required" placeholder="Name">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" class="form-control" required="required" placeholder="Email Id">
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Your text here"></textarea>
+                            </div>                        
+                            <div class="form-group">
+                                <input type="submit" name="submit" class="btn btn-submit" value="Submit">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="copyright-text text-center">
+                        <p>&copy; Your Company 2014. All Rights Reserved.</p>
+                        <p>Designed by Themeum</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--/#footer-->
+
+
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/lightbox.min.js"></script>
+    <script type="text/javascript" src="js/wow.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>   
+</body>
+</html>

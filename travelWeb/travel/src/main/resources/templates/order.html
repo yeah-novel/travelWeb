@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+    <title>用户登录界面</title>
+    <link type="text/css" rel="styleSheet"  href="/css/loginStyle.css" />
+</head>
+<body>
+	<div id="bg">
+        <div id="hint"><!-- 提示框 -->
+            <p>登录失败</p>
+        </div>
+        <div id="login_wrap">
+            <div id="login"><!-- 登录注册切换动画 -->
+                <div id="status">
+                    <a href="#">账号登录</a>
+                    <a href="register.html">用户注册</a>
+                </div>
+                <hr style="border-bottom:2px solid #fff;padding-top: 5px">
+                <span>
+                    <form  action="/toLogin" method="post" >
+                        <p class="form">用户名&nbsp;&nbsp;<input type="text" name="userPhone" id="user" placeholder="userPhone"></p>
+                        <p class="form">密&nbsp;&nbsp;&nbsp;&nbsp;码&nbsp;&nbsp;<input type="password" name="password" id="passwd" placeholder="password"></p>
+                        <input type="submit" name="submit" value="Login in" class="btn" onclick='test()' id="btn">
+                    </form>
+                </span>
+            </div>
+        </div>
+    </div>
+	<script type="text/javascript">
+	function test(){
+		var flag=true;
+		var ww=document.getElementById("user");
+		var rr=document.getElementById("passwd");
+		
+		if((ww.value=="")&&(rr.value=="")){
+			alert("不能都为空")
+			flag=false;
+			return flag;
+			}else if(ww.value==""){
+			alert("用户名不能为空");
+			flag=false;
+			return flag;
+			}else if(rr.value==""){
+				alert("密码不能为空")
+				flag=false;
+				return flag;
+			}
+			return flag;
+		}
+	</script>	
+</body>
+</html>

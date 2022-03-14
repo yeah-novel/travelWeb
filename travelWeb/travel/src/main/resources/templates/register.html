@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="icon" type="image/x-icon" href="#" />
+    <link type="text/css" rel="styleSheet"  href="/css/loginStyle.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>用户注册</title>
+</head>
+<body>
+    <div id="bg">
+        <div id="hint"><!-- 提示框 -->
+            <p>注册失败</p>
+        </div>
+        <div id="login_wrap">
+            <div id="login"><!-- 登录注册切换动画 -->
+                <div id="status">
+                    <a href="/toLoginPage">账号登录</a>
+                    <a href="#">用户注册</a>
+                </div>
+                <hr style="border-bottom:2px solid #fff;padding-top: 5px">
+                <span>
+                    <form  action="/toRegister" method="post">
+                        <p class="form">手机号码&nbsp;&nbsp;<input type="text" name="userPhone" id="user" placeholder="userPhone"></p>
+                        <p class="form">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码&nbsp;&nbsp;<input type="password" name="password" id="passwd" placeholder="password"></p>
+                        <p class="form confirm">确认密码&nbsp;&nbsp;<input type="password" name="repassword" id="confirm-passwd" placeholder="confirm password"></p>
+                        <input type="submit" name="submit" value="Sign in" class="btn" onclick='test()'id="btn">
+                    </form>
+                </span>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function test(){
+            var flag=true;
+            var ww=document.getElementById("user");
+            var rr=document.getElementById("passwd");
+            var re=document.getElementById("confirm-passwd")
+            var mol = /^1[3458]\d{9}$/;
+            if((ww.value=="")&&(rr.value=="")){
+                alert("不能都为空")
+                flag=false;
+                return flag;
+            }else if(ww.value==""){
+                alert("手机号码不能为空");
+                flag=false;
+                return flag;
+            }else if(rr.value==""){
+                alert("密码不能为空")
+                flag=false;
+                return flag;
+            }else if(rr.value!=re.value){
+                alert("密码输入不一致")
+                flag=false;
+                return flag;
+            }else if(!mol.exec(ww.value)){
+                alert("请输入正确的电话号码")
+                flag=false;
+                return flag;
+            }
+            return flag;
+        }
+    </script>
+</body>
+
+</html>
